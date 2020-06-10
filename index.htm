@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+    .swal-icon--error {
+      border-color: #f27474;
+      -webkit-animation: animateErrorIcon .5s;
+      animation: animateErrorIcon .5s
+    }
+
+    .swal-icon--error__x-mark {
+      position: relative;
+      display: block;
+      -webkit-animation: animateXMark .5s;
+      animation: animateXMark .5s
+    }
+
+    .swal-icon--error__line {
+      position: absolute;
+      height: 5px;
+      width: 47px;
+      background-color: #f27474;
+      display: block;
+      top: 37px;
+      border-radius: 2px
+    }
+
+    .swal-icon--error__line--left {
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      left: 17px
+    }
+
+    .swal-icon--error__line--right {
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      right: 16px
+    }
+
+    @-webkit-keyframes animateErrorIcon {
+      0% {
+        -webkit-transform: rotateX(100deg);
+        transform: rotateX(100deg);
+        opacity: 0
+      }
+
+      to {
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+        opacity: 1
+      }
+    }
+
+    @keyframes animateErrorIcon {
+      0% {
+        -webkit-transform: rotateX(100deg);
+        transform: rotateX(100deg);
+        opacity: 0
+      }
+
+      to {
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+        opacity: 1
+      }
+    }
+
+    @-webkit-keyframes animateXMark {
+      0% {
+        -webkit-transform: scale(.4);
+        transform: scale(.4);
+        margin-top: 26px;
+        opacity: 0
+      }
+
+      50% {
+        -webkit-transform: scale(.4);
+        transform: scale(.4);
+        margin-top: 26px;
+        opacity: 0
+      }
+
+      80% {
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+        margin-top: -6px
+      }
+
+      to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        margin-top: 0;
+        opacity: 1
+      }
+    }
+
+    @keyframes animateXMark {
+      0% {
+        -webkit-transform: scale(.4);
+        transform: scale(.4);
+        margin-top: 26px;
+        opacity: 0
+      }
+
+      50% {
+        -webkit-transform: scale(.4);
+        transform: scale(.4);
+        margin-top: 26px;
+        opacity: 0
+      }
+
+      80% {
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+        margin-top: -6px
+      }
+
+      to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        margin-top: 0;
+        opacity: 1
+      }
+    }
+
+    .swal-icon--warning {
+      border-color: #f8bb86;
+      -webkit-animation: pulseWarning .75s infinite alternate;
+      animation: pulseWarning .75s infinite alternate
+    }
+
+    .swal-icon--warning__body {
+      width: 5px;
+      height: 47px;
+      top: 10px;
+      border-radius: 2px;
+      margin-left: -2px
+    }
+
+    .swal-icon--warning__body,
+    .swal-icon--warning__dot {
+      position: absolute;
+      left: 50%;
+      background-color: #f8bb86
+    }
+
+    .swal-icon--warning__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-left: -4px;
+      bottom: -11px
+    }
+
+    @-webkit-keyframes pulseWarning {
+      0% {
+        border-color: #f8d486
+      }
+
+      to {
+        border-color: #f8bb86
+      }
+    }
+
+    @keyframes pulseWarning {
+      0% {
+        border-color: #f8d486
+      }
+
+      to {
+        border-color: #f8bb86
+      }
+    }
+
+    .swal-icon--success {
+      border-color: #a5dc86
+    }
+
+    .swal-icon--success:after,
+    .swal-icon--success:before {
+      content: "";
+      border-radius: 50%;
+      position: absolute;
+      width: 60px;
+      height: 120px;
+      background: #fff;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg)
+    }
+
+    .swal-icon--success:before {
+      border-radius: 120px 0 0 120px;
+      top: -7px;
+      left: -33px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-transform-origin: 60px 60px;
+      transform-origin: 60px 60px
+    }
+
+    .swal-icon--success:after {
+      border-radius: 0 120px 120px 0;
+      top: -11px;
+      left: 30px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-transform-origin: 0 60px;
+      transform-origin: 0 60px;
+      -webkit-animation: rotatePlaceholder 4.25s ease-in;
+      animation: rotatePlaceholder 4.25s ease-in
+    }
+
+    .swal-icon--success__ring {
+      width: 80px;
+      height: 80px;
+      border: 4px solid hsla(98, 55%, 69%, .2);
+      border-radius: 50%;
+      box-sizing: content-box;
+      position: absolute;
+      left: -4px;
+      top: -4px;
+      z-index: 2
+    }
+
+    .swal-icon--success__hide-corners {
+      width: 5px;
+      height: 90px;
+      background-color: #fff;
+      padding: 1px;
+      position: absolute;
+      left: 28px;
+      top: 8px;
+      z-index: 1;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg)
+    }
+
+    .swal-icon--success__line {
+      height: 5px;
+      background-color: #a5dc86;
+      display: block;
+      border-radius: 2px;
+      position: absolute;
+      z-index: 2
+    }
+
+    .swal-icon--success__line--tip {
+      width: 25px;
+      left: 14px;
+      top: 46px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-animation: animateSuccessTip .75s;
+      animation: animateSuccessTip .75s
+    }
+
+    .swal-icon--success__line--long {
+      width: 47px;
+      right: 8px;
+      top: 38px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-animation: animateSuccessLong .75s;
+      animation: animateSuccessLong .75s
+    }
+
+    @-webkit-keyframes rotatePlaceholder {
+      0% {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg)
+      }
+
+      5% {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg)
+      }
+
+      12% {
+        -webkit-transform: rotate(-405deg);
+        transform: rotate(-405deg)
+      }
+
+      to {
+        -webkit-transform: rotate(-405deg);
+        transform: rotate(-405deg)
+      }
+    }
+
+    @keyframes rotatePlaceholder {
+      0% {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg)
+      }
+
+      5% {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg)
+      }
+
+      12% {
+        -webkit-transform: rotate(-405deg);
+        transform: rotate(-405deg)
+      }
+
+      to {
+        -webkit-transform: rotate(-405deg);
+        transform: rotate(-405deg)
+      }
+    }
+
+    @-webkit-keyframes animateSuccessTip {
+      0% {
+        width: 0;
+        left: 1px;
+        top: 19px
+      }
+
+      54% {
+        width: 0;
+        left: 1px;
+        top: 19px
+      }
+
+      70% {
+        width: 50px;
+        left: -8px;
+        top: 37px
+      }
+
+      84% {
+        width: 17px;
+        left: 21px;
+        top: 48px
+      }
+
+      to {
+        width: 25px;
+        left: 14px;
+        top: 45px
+      }
+    }
+
+    @keyframes animateSuccessTip {
+      0% {
+        width: 0;
+        left: 1px;
+        top: 19px
+      }
+
+      54% {
+        width: 0;
+        left: 1px;
+        top: 19px
+      }
+
+      70% {
+        width: 50px;
+        left: -8px;
+        top: 37px
+      }
+
+      84% {
+        width: 17px;
+        left: 21px;
+        top: 48px
+      }
+
+      to {
+        width: 25px;
+        left: 14px;
+        top: 45px
+      }
+    }
+
+    @-webkit-keyframes animateSuccessLong {
+      0% {
+        width: 0;
+        right: 46px;
+        top: 54px
+      }
+
+      65% {
+        width: 0;
+        right: 46px;
+        top: 54px
+      }
+
+      84% {
+        width: 55px;
+        right: 0;
+        top: 35px
+      }
+
+      to {
+        width: 47px;
+        right: 8px;
+        top: 38px
+      }
+    }
+
+    @keyframes animateSuccessLong {
+      0% {
+        width: 0;
+        right: 46px;
+        top: 54px
+      }
+
+      65% {
+        width: 0;
+        right: 46px;
+        top: 54px
+      }
+
+      84% {
+        width: 55px;
+        right: 0;
+        top: 35px
+      }
+
+      to {
+        width: 47px;
+        right: 8px;
+        top: 38px
+      }
+    }
+
+    .swal-icon--info {
+      border-color: #c9dae1
+    }
+
+    .swal-icon--info:before {
+      width: 5px;
+      height: 29px;
+      bottom: 17px;
+      border-radius: 2px;
+      margin-left: -2px
+    }
+
+    .swal-icon--info:after,
+    .swal-icon--info:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      background-color: #c9dae1
+    }
+
+    .swal-icon--info:after {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-left: -3px;
+      top: 19px
+    }
+
+    .swal-icon {
+      width: 80px;
+      height: 80px;
+      border-width: 4px;
+      border-style: solid;
+      border-radius: 50%;
+      padding: 0;
+      position: relative;
+      box-sizing: content-box;
+      margin: 20px auto
+    }
+
+    .swal-icon:first-child {
+      margin-top: 32px
+    }
+
+    .swal-icon--custom {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      border: none;
+      border-radius: 0
+    }
+
+    .swal-icon img {
+      max-width: 100%;
+      max-height: 100%
+    }
+
+    .swal-title {
+      color: rgba(0, 0, 0, .65);
+      font-weight: 600;
+      text-transform: none;
+      position: relative;
+      display: block;
+      padding: 13px 16px;
+      font-size: 27px;
+      line-height: normal;
+      text-align: center;
+      margin-bottom: 0
+    }
+
+    .swal-title:first-child {
+      margin-top: 26px
+    }
+
+    .swal-title:not(:first-child) {
+      padding-bottom: 0
+    }
+
+    .swal-title:not(:last-child) {
+      margin-bottom: 13px
+    }
+
+    .swal-text {
+      font-size: 16px;
+      position: relative;
+      float: none;
+      line-height: normal;
+      vertical-align: top;
+      text-align: left;
+      display: inline-block;
+      margin: 0;
+      padding: 0 10px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, .64);
+      max-width: calc(100% - 20px);
+      overflow-wrap: break-word;
+      box-sizing: border-box
+    }
+
+    .swal-text:first-child {
+      margin-top: 45px
+    }
+
+    .swal-text:last-child {
+      margin-bottom: 45px
+    }
+
+    .swal-footer {
+      text-align: right;
+      padding-top: 13px;
+      margin-top: 13px;
+      padding: 13px 16px;
+      border-radius: inherit;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0
+    }
+
+    .swal-button-container {
+      margin: 5px;
+      display: inline-block;
+      position: relative
+    }
+
+    .swal-button {
+      background-color: #7cd1f9;
+      color: #fff;
+      border: none;
+      box-shadow: none;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 24px;
+      margin: 0;
+      cursor: pointer
+    }
+
+    .swal-button:not([disabled]):hover {
+      background-color: #78cbf2
+    }
+
+    .swal-button:active {
+      background-color: #70bce0
+    }
+
+    .swal-button:focus {
+      outline: none;
+      box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(43, 114, 165, .29)
+    }
+
+    .swal-button[disabled] {
+      opacity: .5;
+      cursor: default
+    }
+
+    .swal-button::-moz-focus-inner {
+      border: 0
+    }
+
+    .swal-button--cancel {
+      color: #555;
+      background-color: #efefef
+    }
+
+    .swal-button--cancel:not([disabled]):hover {
+      background-color: #e8e8e8
+    }
+
+    .swal-button--cancel:active {
+      background-color: #d7d7d7
+    }
+
+    .swal-button--cancel:focus {
+      box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(116, 136, 150, .29)
+    }
+
+    .swal-button--danger {
+      background-color: #e64942
+    }
+
+    .swal-button--danger:not([disabled]):hover {
+      background-color: #df4740
+    }
+
+    .swal-button--danger:active {
+      background-color: #cf423b
+    }
+
+    .swal-button--danger:focus {
+      box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(165, 43, 43, .29)
+    }
+
+    .swal-content {
+      padding: 0 20px;
+      margin-top: 20px;
+      font-size: medium
+    }
+
+    .swal-content:last-child {
+      margin-bottom: 20px
+    }
+
+    .swal-content__input,
+    .swal-content__textarea {
+      -webkit-appearance: none;
+      background-color: #fff;
+      border: none;
+      font-size: 14px;
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, .14);
+      padding: 10px 13px;
+      border-radius: 2px;
+      transition: border-color .2s
+    }
+
+    .swal-content__input:focus,
+    .swal-content__textarea:focus {
+      outline: none;
+      border-color: #6db8ff
+    }
+
+    .swal-content__textarea {
+      resize: vertical
+    }
+
+    .swal-button--loading {
+      color: transparent
+    }
+
+    .swal-button--loading~.swal-button__loader {
+      opacity: 1
+    }
+
+    .swal-button__loader {
+      position: absolute;
+      height: auto;
+      width: 43px;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      text-align: center;
+      pointer-events: none;
+      opacity: 0
+    }
+
+    .swal-button__loader div {
+      display: inline-block;
+      float: none;
+      vertical-align: baseline;
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border: none;
+      margin: 2px;
+      opacity: .4;
+      border-radius: 7px;
+      background-color: hsla(0, 0%, 100%, .9);
+      transition: background .2s;
+      -webkit-animation: swal-loading-anim 1s infinite;
+      animation: swal-loading-anim 1s infinite
+    }
+
+    .swal-button__loader div:nth-child(3n+2) {
+      -webkit-animation-delay: .15s;
+      animation-delay: .15s
+    }
+
+    .swal-button__loader div:nth-child(3n+3) {
+      -webkit-animation-delay: .3s;
+      animation-delay: .3s
+    }
+
+    @-webkit-keyframes swal-loading-anim {
+      0% {
+        opacity: .4
+      }
+
+      20% {
+        opacity: .4
+      }
+
+      50% {
+        opacity: 1
+      }
+
+      to {
+        opacity: .4
+      }
+    }
+
+    @keyframes swal-loading-anim {
+      0% {
+        opacity: .4
+      }
+
+      20% {
+        opacity: .4
+      }
+
+      50% {
+        opacity: 1
+      }
+
+      to {
+        opacity: .4
+      }
+    }
+
+    .swal-overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 0;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, .4);
+      z-index: 10000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .3s
+    }
+
+    .swal-overlay:before {
+      content: " ";
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%
+    }
+
+    .swal-overlay--show-modal {
+      opacity: 1;
+      pointer-events: auto
+    }
+
+    .swal-overlay--show-modal .swal-modal {
+      opacity: 1;
+      pointer-events: auto;
+      box-sizing: border-box;
+      -webkit-animation: showSweetAlert .3s;
+      animation: showSweetAlert .3s;
+      will-change: transform
+    }
+
+    .swal-modal {
+      width: 478px;
+      opacity: 0;
+      pointer-events: none;
+      background-color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      position: static;
+      margin: 20px auto;
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+      z-index: 10001;
+      transition: opacity .2s, -webkit-transform .3s;
+      transition: transform .3s, opacity .2s;
+      transition: transform .3s, opacity .2s, -webkit-transform .3s
+    }
+
+    @media (max-width:500px) {
+      .swal-modal {
+        width: calc(100% - 20px)
+      }
+    }
+
+    @-webkit-keyframes showSweetAlert {
+      0% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+      }
+
+      1% {
+        -webkit-transform: scale(.5);
+        transform: scale(.5)
+      }
+
+      45% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05)
+      }
+
+      80% {
+        -webkit-transform: scale(.95);
+        transform: scale(.95)
+      }
+
+      to {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+      }
+    }
+
+    @keyframes showSweetAlert {
+      0% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+      }
+
+      1% {
+        -webkit-transform: scale(.5);
+        transform: scale(.5)
+      }
+
+      45% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05)
+      }
+
+      80% {
+        -webkit-transform: scale(.95);
+        transform: scale(.95)
+      }
+
+      to {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+      }
+    }
+  </style>
+
+  <!-- PLUGINS -->
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+  <title>Hogyan lehet megszabadulni a kor foltok ?</title>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!--[if IE]><link rel="shortcut icon" href="https://437e81e1-5ed1-4d53-bed7-e6f8d97dcc9b.selcdn.net/16/66/12/45c5c460a8bffc6b405443cdeba761693e/32x32/favicon.png"><![endif]-->
+  <link rel="apple-touch-icon-precomposed"
+    href="https://437e81e1-5ed1-4d53-bed7-e6f8d97dcc9b.selcdn.net/16/66/12/45c5c460a8bffc6b405443cdeba761693e/180x180/favicon.png">
+  <link rel="icon"
+    href="https://437e81e1-5ed1-4d53-bed7-e6f8d97dcc9b.selcdn.net/16/66/12/45c5c460a8bffc6b405443cdeba761693e/196x196/favicon.png">
+
+  <!-- CORE -->
+  <link type="text/css" rel="stylesheet" href="img/vendors.css">
+  <link type="text/css" rel="stylesheet" href="img/default.css">
+  <link type="text/css" rel="stylesheet" href="img/nodes.css">
+
+  <style>
+    .node.css0 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 22px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css0 a {
+      color: rgb(230, 25, 25)
+    }
+
+    .textable.css1 {
+      text-align: left;
+      font-family: "Fira Sans";
+      font-size: 83px;
+      line-height: 1.3;
+      letter-spacing: 0.01927710843373494em;
+      opacity: 1
+    }
+
+    .screen-md .textable.css1 {
+      font-size: 75px !important
+    }
+
+    .screen-sm .textable.css1 {
+      font-size: 83px !important
+    }
+
+    .screen-xs .textable.css1 {
+      text-align: center !important;
+      font-size: 50px !important
+    }
+
+    .node.css2 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css2 a {
+      color: rgb(230, 25, 25)
+    }
+
+    .textable.css3 {
+      text-align: left;
+      font-family: "Fira Sans Light";
+      font-size: 20px;
+      line-height: 1.6;
+      letter-spacing: 0em;
+      opacity: 0.76
+    }
+
+    .screen-xs .textable.css3 {
+      text-align: center !important
+    }
+
+    .node.css4 {
+      color: #333;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css4 a {
+      color: rgb(230, 25, 25)
+    }
+
+    .textable.css5 {
+      text-align: left;
+      font-family: "Fira Sans Light";
+      font-size: 48px;
+      line-height: 1.2;
+      letter-spacing: 0em;
+      opacity: 1
+    }
+
+    .node.css6 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .screen-xs .node.css6 {
+      padding-top: 68px !important
+    }
+
+    .node.css6 a {
+      color: rgb(230, 25, 25)
+    }
+
+    .screen-xs .node.css7 img {
+      max-width: 484.88px !important
+    }
+
+    .node.css8 {
+      color: #333;
+      padding-top: 139px;
+      padding-bottom: 53px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css8 a {
+      color: rgb(230, 25, 25)
+    }
+
+    .node.css9>.wrapper1 {
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat
+    }
+
+    .node.css9>.wrapper1>.wrapper2 {
+      background-color: rgba(0, 0, 0, 0)
+    }
+
+    .node.css9 {
+      color: #333
+    }
+
+    .node.css9>.padding_top {
+      padding-top: 25px
+    }
+
+    .node.css9>.padding_bottom {
+      padding-bottom: 143px
+    }
+
+    .screen-xs .node.css9>.padding_bottom {
+      padding-bottom: 46px !important
+    }
+
+    .node.css9 a {
+      color: rgb(230, 25, 25)
+    }
+
+    .node.css10 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 55px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css10 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .textable.css11 {
+      text-align: center;
+      font-family: "Fira Sans";
+      font-size: 48px;
+      line-height: 1.1;
+      letter-spacing: 0em;
+      opacity: 1
+    }
+
+    .screen-xs .textable.css11 {
+      text-align: center !important;
+      font-size: 38px !important
+    }
+
+    .node.css12 {
+      color: #333;
+      padding-top: 15px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css12 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .textable.css13 {
+      text-align: left;
+      font-family: "Fira Sans Light";
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: 0em;
+      opacity: 0.69
+    }
+
+    .screen-xs .textable.css13 {
+      text-align: center !important
+    }
+
+    .node.css14 {
+      color: #333;
+      padding-top: 15px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .screen-xs .node.css14 {
+      padding-bottom: 50px !important
+    }
+
+    .node.css14 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .textable.css15 {
+      text-align: left;
+      font-family: "Fira Sans Light";
+      font-size: 16px;
+      line-height: 1.4;
+      letter-spacing: 0em;
+      opacity: 0.69
+    }
+
+    .screen-xs .textable.css15 {
+      text-align: center !important
+    }
+
+    .node.css16 {
+      color: #333;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css16 a {
+      color: rgb(25, 94, 230)
+    }
+
+
+    .node.css18 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 37px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css18 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .node.css19>.wrapper1 {
+      background-color: white
+    }
+
+    .node.css19 {
+      color: #333
+    }
+
+    .node.css19>.padding_top {
+      padding-top: 80px
+    }
+
+    .node.css19>.padding_bottom {
+      padding-bottom: 103px
+    }
+
+    .node.css19 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .node.css20 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 21px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css20 a {
+      color: rgb(230, 25, 25)
+    }
+
+    .textable.css21 {
+      text-align: left;
+      font-family: "Fira Sans";
+      font-size: 48px;
+      line-height: 1.4;
+      letter-spacing: 0em;
+      opacity: 1
+    }
+
+    .screen-xs .textable.css21 {
+      text-align: center !important;
+      font-size: 34px !important
+    }
+
+    .node.css22 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 171px
+    }
+
+    .screen-md .node.css22 {
+      padding-right: 56px !important
+    }
+
+    .screen-xs .node.css22 {
+      padding-right: 5px !important
+    }
+
+    .node.css22 a {
+      color: rgb(230, 25, 25)
+    }
+
+    .textable.css23 {
+      text-align: left;
+      font-family: "Fira Sans Light";
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: 0em;
+      color: rgb(98, 98, 98);
+      opacity: 1
+    }
+
+    .screen-xs .textable.css23 {
+      text-align: center !important
+    }
+
+    .node.css24>.wrapper1 {
+      background-color: rgb(248, 248, 248)
+    }
+
+    .node.css24 {
+      color: #333
+    }
+
+    .node.css24>.padding_top {
+      padding-top: 85px
+    }
+
+    .screen-xs .node.css24>.padding_top {
+      padding-top: 25px !important
+    }
+
+    .node.css24>.padding_bottom {
+      padding-bottom: 85px
+    }
+
+    .node.css24 a {
+      color: rgb(230, 25, 25)
+    }
+
+    .textable.css25 {
+      text-align: center;
+      font-family: "Fira Sans";
+      font-size: 48px;
+      line-height: 1.4;
+      letter-spacing: 0em;
+      opacity: 1
+    }
+
+    .screen-xs .textable.css25 {
+      text-align: center !important;
+      font-size: 38px !important
+    }
+
+    .node.css26 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .screen-xs .node.css26 {
+      padding-bottom: 31px !important
+    }
+
+    .node.css26 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .node.css27 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 63px
+    }
+
+    .screen-xs .node.css27 {
+      padding-bottom: 39px !important;
+      padding-right: 5px !important
+    }
+
+    .node.css27 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .textable.css28 {
+      text-align: left;
+      font-family: "Fira Sans Light";
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: 0em;
+      opacity: 0.61
+    }
+
+    .screen-xs .textable.css28 {
+      text-align: center !important
+    }
+
+    .node.css29 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css29 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .node.css30>.wrapper1 {
+      background-color: white
+    }
+
+    .node.css30 {
+      color: #333
+    }
+
+    .node.css30>.padding_top {
+      padding-top: 80px
+    }
+
+    .node.css30>.padding_bottom {
+      padding-bottom: 90px
+    }
+
+    .screen-xs .node.css30>.padding_bottom {
+      padding-bottom: 71px !important
+    }
+
+    .node.css30 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .metahtml.css31 .form1-cover {
+      padding: 20px 15px;
+      background-color: rgb(255, 255, 255);
+      border-color: rgb(26, 84, 199);
+      border-style: none;
+      border-width: 2px;
+      border-radius: 5px;
+      box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .node.css32 {
+      color: #333;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left: 5px;
+      padding-right: 5px
+    }
+
+    .node.css32 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .textable.css33 {
+      text-align: center;
+      font-family: "Fira Sans";
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: 0.04em;
+      opacity: 1
+    }
+
+    .metahtml.css34 [cr-field] {
+      padding-bottom: 14px;
+      font-size: 14px;
+      font-family: Fira Sans Light;
+    }
+
+    .metahtml.css34 .name {
+      font-weight: normal;
+      font-family: Fira Sans Light;
+      opacity: 0.8;
+      margin-bottom: 6.5px;
+      font-size: 13px;
+      word-wrap: break-word;
+      text-transform: uppercase;
+      ;
+      letter-spacing: 0.1em;
+      ;
+    }
+
+    .metahtml.css34 .form-control {
+      height: auto;
+      line-height: 1.2;
+      box-shadow: none;
+      position: relative;
+      background-color: rgb(255, 255, 255);
+      color: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 0px;
+      padding: 12px 9.6px;
+      font-size: 14px;
+      cursor: initial;
+    }
+
+    .metahtml.css34 .form-control:focus,
+    .metahtml.css34 .form-control:focus-within {
+      border-color: rgb(26, 84, 199);
+      background-color: rgb(252, 252, 252);
+    }
+
+    .metahtml.css34 .form-control+.form-control {
+      margin-top: 10px;
+    }
+
+    .metahtml.css34 label {
+      font-weight: normal;
+      display: block;
+      cursor: pointer;
+    }
+
+    .metahtml.css34 textarea {
+      resize: vertical;
+    }
+
+    .metahtml.css34 .checkbox {
+      width: 22px;
+      height: 22px;
+      padding: 0;
+      margin: 0 5.5px 0 0;
+      line-height: 0;
+      min-height: auto;
+      display: inline-block;
+      vertical-align: middle;
+      background: white;
+      border: 2px solid rgba(0, 0, 0, 0.25);
+      position: relative;
+      transition: 300ms all;
+      border-radius: 2px;
+    }
+
+    .metahtml.css34 .checkbox svg {
+      width: 100%;
+      opacity: 0;
+      transform: scale(0);
+      transition: 300ms all;
+    }
+
+    .metahtml.css34 input:hover~.checkbox,
+    .metahtml.css34 input:focus~.checkbox {
+      border-color: rgb(129, 166, 239);
+    }
+
+    .metahtml.css34 input:checked~.checkbox {
+      border-color: rgb(23, 76, 179);
+      background-color: rgb(26, 84, 199);
+    }
+
+    .metahtml.css34 input:active~.checkbox {
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .metahtml.css34 input:checked~.checkbox svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .metahtml.css34 .radio {
+      margin: 0;
+      margin: 0 5.5px 0 0;
+      padding: 0;
+      line-height: 0;
+      width: 22px;
+      height: 22px;
+      min-height: auto;
+      display: inline-block;
+      vertical-align: middle;
+      background: white;
+      border: 2px solid rgba(0, 0, 0, 0.25);
+      position: relative;
+      transition: 300ms all;
+      border-radius: 100px;
+    }
+
+    .metahtml.css34 .radio:before {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 0;
+      height: 100%;
+      content: '';
+      display: block;
+      background-color: white;
+      border-radius: 100px;
+      opacity: 0;
+      transform: scale(0);
+      transition: 300ms all;
+    }
+
+    .metahtml.css34 input:hover~.radio,
+    .metahtml.css34 input:focus~.radio {
+      border-color: rgb(129, 166, 239);
+    }
+
+    .metahtml.css34 input:active~.radio {
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .metahtml.css34 input:checked~.radio {
+      border-color: rgb(23, 76, 179);
+      background-color: rgb(26, 84, 199);
+    }
+
+    .metahtml.css34 input:checked~.radio:before {
+      opacity: 1;
+      transform: scale(0.5);
+    }
+
+    .metahtml.css34 [cr-field="checkbox-list"] span {
+      vertical-align: middle;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-list"] input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-list"] label+label {
+      margin-top: 7.333333333333333px;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] {
+      overflow: hidden;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] .items {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: -20px;
+      justify-content: space-between;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] .item {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      margin-bottom: 20px;
+      width: 30%;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] label {
+      position: relative;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] .bgimage {
+      background-size: cover;
+      display: inline-block;
+      background-position: center;
+      border-radius: 50px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] .tick {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(26, 84, 199, 0.75);
+      transition: all 300ms;
+      opacity: 0;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] .tick svg {
+      opacity: 0;
+      transition: all 300ms;
+      max-width: 26px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] .subname {
+      margin: 7px 0;
+      word-wrap: break-word;
+      white-space: normal;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] input:hover~.bgimage .tick,
+    .metahtml.css34 [cr-field="checkbox-visual"] input:focus~.bgimage .tick {
+      opacity: 0.5;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-visual"] input:checked~.bgimage .tick,
+    .metahtml.css34 [cr-field="checkbox-visual"] input:checked~.bgimage .tick svg {
+      opacity: 1;
+    }
+
+    .screen-xs .metahtml.css34 [cr-field="checkbox-visual"] .item {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 10px;
+      white-space: nowrap;
+    }
+
+    .screen-xs .metahtml.css34 [cr-field="checkbox-visual"] .bgimage {
+      width: 25%;
+      padding-top: 25%;
+      vertical-align: middle;
+    }
+
+    .screen-xs .metahtml.css34 [cr-field="checkbox-visual"] .subname {
+      width: 75%;
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 5%;
+      margin-left: -4px;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-input"] span {
+      vertical-align: middle;
+    }
+
+    .metahtml.css34 [cr-field="checkbox-input"] input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .metahtml.css34 [cr-field="radio-list"] span {
+      vertical-align: middle;
+    }
+
+    .metahtml.css34 [cr-field="radio-list"] input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .metahtml.css34 [cr-field="radio-list"] label+label {
+      margin-top: 7.333333333333333px;
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] {
+      overflow: hidden;
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] .items {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: -20px;
+      justify-content: space-between;
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] .item {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      margin-bottom: 20px;
+      width: 30%;
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] label {
+      position: relative;
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] .bgimage {
+      background-size: cover;
+      display: inline-block;
+      background-position: center;
+      border-radius: 50px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] .tick {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(26, 84, 199, 0.75);
+      transition: all 300ms;
+      opacity: 0;
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] .tick svg {
+      opacity: 0;
+      transition: all 300ms;
+      max-width: 26px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] .subname {
+      margin: 7px 0;
+      word-wrap: break-word;
+      white-space: normal;
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] input:hover~.bgimage .tick {
+      opacity: 0.5;
+    }
+
+    .metahtml.css34 [cr-field="radio-visual"] input:checked~.bgimage .tick,
+    .metahtml.css34 [cr-field="radio-visual"] input:checked~.bgimage .tick svg {
+      opacity: 1;
+    }
+
+    .screen-xs .metahtml.css34 [cr-field="radio-visual"] .item {
+      width: 100%;
+      text-align: left;
+      margin-bottom: 10px;
+      white-space: nowrap;
+    }
+
+    .screen-xs .metahtml.css34 [cr-field="radio-visual"] .bgimage {
+      width: 25%;
+      padding-top: 25%;
+      vertical-align: middle;
+    }
+
+    .screen-xs .metahtml.css34 [cr-field="radio-visual"] .subname {
+      width: 75%;
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 5%;
+      margin-left: -4px;
+    }
+
+    .metahtml.css34 [cr-field="select-menu"] select {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 1;
+      color: black;
+      -webkit-appearance: none;
+    }
+
+    .metahtml.css34 [cr-field="select-menu"] .fa {
+      font-size: 20px;
+      line-height: 0;
+      opacity: 0.5;
+      vertical-align: middle;
+    }
+
+    .metahtml.css34 [cr-field="select-menu"] .flexgrid {
+      display: flex;
+      align-items: center;
+    }
+
+    .metahtml.css34 [cr-field="select-menu"] .flexgrid .left {
+      flex-grow: 1;
+      min-width: 50%;
+      word-wrap: break-word;
+    }
+
+    .metahtml.css34 [cr-field="file"] svg {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-top: -5px;
+      margin-bottom: -5px;
+    }
+
+    .metahtml.css34 [cr-field="file"] span {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    .metahtml.css34 [cr-field="file"] input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 0;
+    }
+
+    .metahtml.css34 [cr-field="file"] .clean {
+      float: right;
+      opacity: 0.5;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+    }
+
+    .metahtml.css34 [cr-field="file"] .clean:hover {
+      opacity: 1;
+    }
+
+    .metahtml.css34 [cr-field="file"] .flexgrid {
+      display: flex;
+      align-items: center;
+    }
+
+    .metahtml.css34 [cr-field="file"] .flexgrid .center {
+      flex-grow: 1;
+      min-width: 50%;
+      word-wrap: break-word;
+    }
+
+    .metahtml.css34 [cr-field="result"] .flexgrid.align-sides {
+      display: flex;
+      align-items: center;
+    }
+
+    .metahtml.css34 [cr-field="result"] .flexgrid.align-sides .left .name {
+      margin-bottom: 0;
+    }
+
+    .metahtml.css34 [cr-field="result"] .flexgrid.align-center .left {
+      text-align: center;
+    }
+
+    .metahtml.css34 [cr-field="result"] .flexgrid.align-right .left {
+      text-align: right;
+    }
+
+    .metahtml.css34 [cr-field="result"] .flexgrid .right {
+      flex-grow: 1;
+      min-width: 25%;
+      word-wrap: break-word;
+      text-align: right;
+      font-size: 120%;
+    }
+
+    .metahtml.css34 [cr-field="result"] .flexgrid.align-left .right {
+      text-align: left;
+    }
+
+    .metahtml.css34 [cr-field="result"] .flexgrid.align-center .right {
+      text-align: center;
+    }
+
+    .metahtml.css34 [cr-field="result"] .flexgrid.align-right .right {
+      text-align: right;
+    }
+
+    .metahtml.css34 [cr-field="privacy-button"] .open {
+      text-align: center;
+      opacity: 0.5;
+      font-size: 80%;
+      cursor: pointer;
+    }
+
+    .metahtml.css34 [cr-field="privacy-button"] .open a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .metahtml.css34 [cr-field="privacy-checkbox"] {
+      font-size: 80%;
+    }
+
+    .metahtml.css34 [cr-field="privacy-checkbox"] span {
+      vertical-align: middle;
+    }
+
+    .metahtml.css34 [cr-field="privacy-checkbox"] a {
+      vertical-align: middle;
+      text-decoration: none;
+      border-bottom-width: 1px;
+      border-bottom-style: dashed;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .metahtml.css34 [cr-field="privacy-checkbox"] input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .metahtml.css34 [cr-field="privacy-text"] {
+      font-size: 80%;
+      text-align: center;
+    }
+
+    .metahtml.css34 [cr-field="privacy-text"] a {
+      text-decoration: none;
+      border-bottom-width: 1px;
+      border-bottom-style: dashed;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .metahtml.css34 [cr-field="hidden"] {
+      opacity: 0.25;
+    }
+
+    .node.css35 {
+      color: #333;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 10px
+    }
+
+    .node.css35 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .btn.css36 {
+      background-color: rgb(26, 84, 199);
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-style: solid;
+      border-top-width: 0px;
+      border-bottom-width: 0px;
+      border-left-width: 0px;
+      border-right-width: 0px;
+      border-color: rgb(21, 67, 159);
+      padding-top: 14px;
+      padding-bottom: 14px;
+      font-size: 16px;
+      color: rgb(255, 255, 255);
+    }
+
+    .btn.css36:hover,
+    .btn.css36.hover,
+    .btn.css36.highlight {
+      background-color: rgb(23, 76, 179);
+      border-color: rgb(17, 54, 127);
+      color: rgb(255, 255, 255);
+    }
+
+    .btn.css36:active,
+    .btn.css36.active {
+      background-color: rgb(21, 68, 161);
+      border-color: rgb(19, 60, 143);
+      color: rgb(255, 255, 255);
+    }
+
+    .btn.css36:before {}
+
+    .btn.css36:active:before,
+    .btn.css36.active:before {
+      background-color: rgb(21, 68, 161);
+    }
+
+    .node.css37 {
+      color: #333;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px
+    }
+
+    .node.css37 a {
+      color: rgb(25, 94, 230)
+    }
+
+    .area.screen-lg {
+      min-width: 1140px;
+    }
+
+    .area.screen-lg .container {
+      width: 1140px;
+    }
+
+    .area.screen-lg .container.soft {
+      max-width: 1140px;
+    }
+
+    .area.screen-md {
+      min-width: 940px;
+    }
+
+    .area.screen-md .container {
+      width: 940px;
+    }
+
+    .area.screen-md .container.soft {
+      max-width: 940px;
+    }
+
+    .area.screen-sm {
+      min-width: 720px;
+    }
+
+    .area.screen-sm .container {
+      width: 720px;
+    }
+
+    .area.screen-sm .container.soft {
+      max-width: 720px;
+    }
+
+    .area.screen-xs .container {
+      max-width: 737px;
+    }
+  </style>
+
+  <!-- PLUGINS -->
+
+
+
+
+
+</head>
+
+<body class="area font-text-firasanslight font-header-firasans screen-lg">
+  <div class="area-wrapper">
+
+    <div class="node css9 section-clear section">
+      <!--pseudo-hidden-->
+      <div class="padding_top"></div>
+      <div class="wrapper1"
+        style="background-image: url(https://437e81e1-5ed1-4d53-bed7-e6f8d97dcc9b.selcdn.net/65/77/33/3973c6448823ddb2af19c0c12169c91662/2350x1226/Artboard Copy.png)">
+        <div class="wrapper2"></div>
+      </div>
+      <div class="container">
+        <div class="cont">
+          <div class="node css8 widget-grid widget">
+            <!--pseudo-hidden-->
+            <div class="grid valign-top paddings-20px xs-wrap">
+              <div class="gridwrap">
+                <div class="col" style="width: 56.2609%;">
+                  <div class="cont">
+                    <div class="node css0 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <h2 class="textable css1">Szeplők és leégés: hogyan védje bőrét?</h2>
+                    </div>
+                    <div class="node css2 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css3"><br></p>
+                    </div>
+                    <div class="node css4 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <h2 class="textable css5"><span>A szeplők a bőrön gyakran előforduló hiperpigmentációs foltok,
+                          amelyek napsütés hatására láthatóbbá válnak. Elmondjuk, hogy mi okozza őket, miben
+                          különböznek a májfoltoktól, az anyajegyektől, és azt is, hogyan védheti a bőrét kialakulásuk
+                          ellen!</span></h2>
+                    </div>
+                    <div class="node css4 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <h2 class="textable css5"><br></h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="col" style="width: 43.7391%;">
+                  <div class="cont">
+                    <div class="node css6 css7 widget-image widget">
+                      <!--pseudo-hidden-->
+                      <div class="xs-force-center bgnormal" style="text-align: center;"><img class="" alt=""
+                          src="img/Freckles-and-sunburn-how-to-protect-your-skin.jpg" style="width: 638px;"></div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="padding_bottom"></div>
+    </div>
+    <div class="node css19 section-clear section" id="block1">
+      <!--pseudo-hidden-->
+      <div class="padding_top"></div>
+      <div class="container">
+        <div class="cont">
+          <div class="node css10 widget-text widget pulse" style="visibility: visible; animation-name: pulse;">
+            <!--pseudo-hidden-->
+            <h2 class="textable css11">Mik a szeplők?</h2>
+          </div>
+          <div class="node css18 widget-grid widget">
+            <!--pseudo-hidden-->
+            <div class="grid valign-middle paddings-40px xs-wrap">
+              <div class="gridwrap">
+                <div class="col" style="width: 45.9486%;">
+                  <div class="cont">
+                    <div class="node css12 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css13">Szeplők (<em>ephelides</em>) akkor alakulnak ki, ha a melanocita
+                        nevezetű sejttípus a szokásosnál több pigmentet termel. Ez a pigment segít védeni a bőrt az
+                        ultraibolya sugárzásától – ha túlstimulált, akkor a sejteket több melanin termelésére készteti,
+                        ami a szeplők megjelenéséhez vezet.</p>
+                    </div>
+                    <div class="node css14 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css15">Azt egyelőre nem tudjuk, hogy egyes bőrfelületek miért hajlamosabbak a
+                        szeplősödésre, mint mások (1). De azt igen, hogy a szeplők jelzik, hogy mennyire érzékenyen
+                        reagál a bőr a napra, és természetes védelmezőként viselkednek a napsütéssel szemben. Ez pedig
+                        még egy ok, amiért érdemes szeretni őket!</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col" style="width: 54.0514%;">
+                  <div class="cont">
+                    <div class="node css16 css17 widget-image widget">
+                      <!--pseudo-hidden-->
+                      <div class="xs-force-center bgnormal" style="text-align: center;"><img class="" alt=""
+                          src="img/Pigmentation-Treatment.jpg" style="width: 1000px;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="padding_bottom"></div>
+    </div>
+    <div class="node css24 section-clear section" id="block2">
+      <!--pseudo-hidden-->
+      <div class="padding_top"></div>
+      <div class="wrapper1">
+        <div class="wrapper2"></div>
+      </div>
+      <div class="container">
+        <div class="cont">
+          <div class="node css2 widget-grid widget">
+            <!--pseudo-hidden-->
+            <div class="grid valign-middle paddings-40px xs-wrap">
+              <div class="gridwrap">
+                <div class="col" style="width: 45.4532%;">
+                  <div class="cont">
+                    <div class="node css2 css17 widget-image widget">
+                      <!--pseudo-hidden-->
+                      <div class="xs-force-center bgnormal" style="text-align: center;"><img class="" alt=""
+                          src="img/girl_with_freckles_by_eruwenrose-d4cwni9.jpg" style="width: 627.52px;"></div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col" style="width: 54.5468%;">
+                  <div class="cont">
+                    <div class="node css20 widget-text widget pulse"
+                      style="visibility: visible; animation-name: pulse;">
+                      <!--pseudo-hidden-->
+                      <h3 class="textable css21"><br></h3>
+                    </div>
+                    <div class="node css4 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <h2 class="textable css5">Mi jellemzi a szeplőket?</h2>
+                    </div>
+                    <div class="node css22 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css23">A szeplők nem mások, mint a melanin felhalmozódása az epidermiszben, a
+                        bőr legfelső rétegében. Méretük általában 1-2 milliméter, színük a pirostól &nbsp;a
+                        világosbarnáig terjed. Leggyakrabban a világos bőrű és/vagy vörös hajú személyekre jellemzők.
+                        Általában 2-3 éves korban jelennek meg, és számuk serdülőkorban tovább gyarapszik, idősebb
+                        korban pedig részben eltűnnek vagy elhalványulnak (1).</p>
+                    </div>
+                    <div class="node css22 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css23"><br></p>
+                    </div>
+                    <div class="node css22 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css23"><br></p>
+                    </div>
+                    <div class="node css22 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css23">Leginkább a napnak kitett bőrfelületeken jelennek meg, mint például az
+                        orcákon, az orron vagy a homlokon (2), de a karokon, a nyakon és a vállakon is előfordulhatnak
+                        (1). Nagyon erőteljes melaninkoncentráció esetén a szeplők akár a bőr egy egész területét,
+                        például az arc egészét is elboríthatják.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="padding_bottom"></div>
+    </div>
+    <div class="node css30 section-clear section">
+      <!--pseudo-hidden-->
+      <div class="padding_top"></div>
+      <div class="container">
+        <div class="cont">
+          <div class="node css10 widget-text widget pulse" style="visibility: visible; animation-name: pulse;">
+            <!--pseudo-hidden-->
+            <h3 class="textable css25"><br></h3>
+          </div>
+          <div class="node css16 widget-text widget">
+            <!--pseudo-hidden-->
+            <h2 class="textable css5">Mi okozza a szeplőket?</h2>
+          </div>
+          <div class="node css29 widget-grid widget">
+            <!--pseudo-hidden-->
+            <div class="grid valign-middle paddings-20px xs-wrap">
+              <div class="gridwrap">
+                <div class="col" style="width: 50%;">
+                  <div class="cont">
+                    <div class="node css26 css17 widget-image widget">
+                      <!--pseudo-hidden-->
+                      <div class="xs-force-center bgnormal" style="text-align: center;"><img class="" alt=""
+                          src="img/Tonizirovanie1.jpg" style="width: 362.52px;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col" style="width: 50%;">
+                  <div class="cont">
+                    <div class="node css27 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css28">A szeplők és a napsütés között bonyolult kapcsolat van.<br><br>Mivel
+                        kisgyermekkorban jelennek meg, azt gondolhatnánk, hogy kialakulásuk genetikailag meghatározott.
+                        Napfény hatására jönnek elő, ami arra utal, hogy a genetikai hajlamot hordozó bőrön válnak
+                        láthatóvá (1).</p>
+                    </div>
+                    <div class="node css27 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css28"><br></p>
+                    </div>
+                    <div class="node css27 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css28">Valójában az<span>&nbsp;</span>UVB-sugárzás<span>&nbsp;</span>(ami
+                        nyáron sokkal erősebb az egész évben jelen lévő UVA-sugárzásnál) hat a melanocitákra és serkenti
+                        a melanin-termelést, ami a szeplők sötétebbé és láthatóbbá válását okozza. Tehát a szeplők
+                        megjelenését az arcon általában két meghatározó tényezővel kapcsolják össze: a gyakori
+                        napégéssel és a genetikával (3).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="padding_bottom"></div>
+    </div>
+    <div class="node css24 section-clear section" id="block2">
+      <!--pseudo-hidden-->
+      <div class="padding_top"></div>
+      <div class="wrapper1">
+        <div class="wrapper2"></div>
+      </div>
+      <div class="container">
+        <div class="cont">
+          <div class="node css2 widget-grid widget">
+            <!--pseudo-hidden-->
+            <div class="grid valign-middle paddings-40px xs-wrap">
+              <div class="gridwrap">
+                <div class="col" style="width: 45.4532%;">
+                  <div class="cont">
+                    <div class="node css2 css17 widget-image widget">
+                      <!--pseudo-hidden-->
+                      <div class="xs-force-center bgnormal" style="text-align: center;"><img class="" alt=""
+                          src="img/s1200.jpeg" style="width: 544.64px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col" style="width: 54.5468%;">
+                  <div class="cont">
+                    <div class="node css4 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <h2 class="textable css5">Miben különböznek a szeplők a májfoltoktól és az anyajegyektől?</h2>
+                    </div>
+                    <div class="node css22 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css23">A szeplők a napsütés hatására erőteljesebbé válnak, és elhalványulnak,
+                        vagy akár el is tűnnek, ha a bőrt nem éri napfény.</p>
+                    </div>
+                    <div class="node css22 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css23"><br></p>
+                    </div>
+                    <div class="node css22 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css23"><br></p>
+                    </div>
+                    <div class="node css22 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css23">Összehasonlításképp a <a
+                          href="https://en.wiktionary.org/wiki/m%C3%A9reg">májfoltok</a> (<em>lentigines</em>)
+                        sötétebbek és nem változnak a napsugárzás mennyiségének hatására. A májfoltok általában
+                        nagyobbak, mint a szeplők és a formájuk körülhatárolhatóbb. Leggyakrabban 50 éves kor felett, a
+                        napfénynek tartósan kitett bőrfelületen, például az arcon, a kezeken és az alkaron vannak
+                        jelen.<br><br>Gyakran társítják őket a bőrt ért UV-sugárzás által okozott károsodással is (1).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="padding_bottom"></div>
+    </div>
+    <div class="node css19 section-clear section" id="block1">
+      <!--pseudo-hidden-->
+      <div class="padding_top"></div>
+      <div class="container">
+        <div class="cont">
+          <div class="node css18 widget-grid widget">
+            <!--pseudo-hidden-->
+            <div class="grid valign-middle paddings-40px xs-wrap">
+              <div class="gridwrap">
+                <div class="col" style="width: 45.9486%;">
+                  <div class="cont">
+                    <div class="node css12 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css13">A felsorolt tényezők függvényében a májfoltok a bőr UV-sugárzás által
+                        okozott photo-öregedésével, avagy az UV-sugaraknak való kitettség által indukált korai
+                        öregedésével hozhatók összefüggésbe, míg a szeplőket elsősorban genetikai tényezők határozzák
+                        meg (3).</p>
+                    </div>
+                    <div class="node css14 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css15">Ezzel szemben az anyajegy (<em>nevus</em>) pigmentált sejtek jóindulatú
+                        koncentrációja, amelyek általában az epidermiszben és a dermiszben (4) helyezkednek el. Az
+                        anyajegyek már születéskor jelen lehetnek, de később is előjöhetnek.</p>
+                    </div>
+                    <div class="node css14 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css15"><br></p>
+                    </div>
+                    <div class="node css16 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <h2 class="textable css5">Mi a legjobb módja a szeplős bőr ápolásának?</h2>
+                    </div>
+                    <div class="node css14 widget-text widget">
+                      <!--pseudo-hidden-->
+                      <p class="textable css15">A válasz mindig a fényvédelem. A nem megfelelő fényvédelem következtében
+                        a napsugárzás károsíthatja a bőrt, amely a szeplőkön túl korai bőröregedéshez, azaz
+                        ráncosodáshoz vezethet. Javasoljuk, hogy mindig széles spektrumú, magas faktorszámú, UVA és
+                        UVB-sugárzás elleni fényszűrővel ellátott fényvédőt használjon, minden napsütésnek kitett
+                        bőrterületen, egész évben, az időjárástól függetlenül. A nap folyamán pedig többször vigye fel
+                        újra bőrére, különösen úszás vagy izzadás után.<br><br>Fontos továbbá a szeplők védelme fényvédő
+                        használatával, mert ez megakadályozhatja a sötét foltok megjelenését és segít csökkenteni a
+                        photo-öregedés jeleit.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col" style="width: 54.0514%;">
+                  <div class="cont">
+                    <div class="node css16 css17 widget-image widget">
+                      <!--pseudo-hidden-->
+                      <div class="xs-force-center bgnormal" style="text-align: center;"><img class="" alt=""
+                          src="img/0fe36c7c03c1a97beb7292ffbcd43931.jpg" style="width: 800px;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="node css16 widget-form2 widget"
+            data-form="{&quot;name&quot;:&quot;Форма&quot;,&quot;after&quot;:&quot;msg&quot;,&quot;msg&quot;:&quot;Спасибо!\nВаша заявка отправлена.\nВ ближайшее время мы с Вами свяжемся!&quot;,&quot;url&quot;:&quot;/thankyou&quot;,&quot;addhtml&quot;:&quot;&lt;!-- Этот код будет вставлен перед закрывающим тегом BODY --&gt;&quot;,&quot;js&quot;:&quot;alert(\&quot;Этот код выполняется после успешного отправления заявки.\&quot;);&quot;,&quot;sequence&quot;:&quot;stepwise&quot;}"
+            data-isquiz="false">
+            <!--pseudo-hidden-->
+            <div style="max-width: 384px; position: relative; margin-left: auto; margin-right: auto;">
+              <div class="metahtml css31">
+                <div class="form1-cover">
+                  <div cr-form-container="" colorside="cover_bgcolored?cover_bgcolor.colorside():_colorside">
+                    <div class="cont">
+                      <div class="node css32 widget-text widget">
+                        <!--pseudo-hidden-->
+                        <h3 class="textable css33">alkalmazás</h3>
+                      </div>
+                      <div class="node css35 widget-field widget">
+                        <!--pseudo-hidden-->
+                        <div class="metahtml css34"
+                          data-vals="{&quot;type&quot;:&quot;name&quot;,&quot;text&quot;:&quot;név&quot;,&quot;hidename&quot;:false,&quot;list&quot;:[{&quot;text&quot;:&quot;Гамбургер&quot;,&quot;image&quot;:{&quot;file&quot;:&quot;//u6.platformalp.ru/c16a5320fa475530d9583c34fd356ef5/85600fbdcfcd98c68092c8ee78fef443.jpg&quot;,&quot;size&quot;:[600,600]},&quot;value&quot;:0,&quot;name&quot;:&quot;Вариант 1&quot;},{&quot;text&quot;:&quot;Чай&quot;,&quot;image&quot;:{&quot;file&quot;:&quot;//u6.platformalp.ru/c16a5320fa475530d9583c34fd356ef5/d07611e14f2f6512eb82382ddb5812dd.jpg&quot;,&quot;size&quot;:[600,600]},&quot;value&quot;:0,&quot;name&quot;:&quot;Вариант 2&quot;},{&quot;text&quot;:&quot;Мороженное&quot;,&quot;image&quot;:{&quot;file&quot;:&quot;//u6.platformalp.ru/c16a5320fa475530d9583c34fd356ef5/ca0be5f5cd84b6891c5a611b252bc904.jpg&quot;,&quot;size&quot;:[600,600]},&quot;value&quot;:0}],&quot;visual_width&quot;:30,&quot;visual_height&quot;:100,&quot;required&quot;:false,&quot;id&quot;:&quot;&quot;,&quot;min&quot;:&quot;0&quot;,&quot;max&quot;:&quot;100&quot;,&quot;step&quot;:&quot;1&quot;,&quot;align&quot;:&quot;sides&quot;,&quot;fontsize&quot;:120,&quot;format&quot;:&quot;%result% руб.&quot;,&quot;formula&quot;:&quot;&quot;,&quot;condition&quot;:&quot;&quot;,&quot;template&quot;:&quot;&quot;,&quot;variable&quot;:&quot;&quot;,&quot;valueOn&quot;:&quot;1&quot;,&quot;valueOff&quot;:&quot;0&quot;,&quot;privacy_button&quot;:&quot;Политика конфиденциальности&quot;,&quot;privacy_checkbox&quot;:&quot;Даю согласие на &lt;обработку персональных данных&gt;&quot;,&quot;privacy_text&quot;:&quot;Нажимая кнопку, вы даете согласие на &lt;обработку персональных данных&gt;&quot;,&quot;privacy_source&quot;:&quot;/privacy&quot;}">
+                          <div cr-field="name" class="is-text">
+                            <div class="name">
+                              név
+                            </div>
+                            <div class="input">
+                              <input type="text" il-action="listen" autocomplete="name" class="form-control" value="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="node css35 widget-field widget">
+                        <!--pseudo-hidden-->
+                        <div class="metahtml css34"
+                          data-vals="{&quot;type&quot;:&quot;phone&quot;,&quot;text&quot;:&quot;telefon&quot;,&quot;hidename&quot;:false,&quot;list&quot;:[{&quot;text&quot;:&quot;Гамбургер&quot;,&quot;image&quot;:{&quot;file&quot;:&quot;//u6.platformalp.ru/c16a5320fa475530d9583c34fd356ef5/85600fbdcfcd98c68092c8ee78fef443.jpg&quot;,&quot;size&quot;:[600,600]},&quot;value&quot;:0,&quot;name&quot;:&quot;Вариант 1&quot;},{&quot;text&quot;:&quot;Чай&quot;,&quot;image&quot;:{&quot;file&quot;:&quot;//u6.platformalp.ru/c16a5320fa475530d9583c34fd356ef5/d07611e14f2f6512eb82382ddb5812dd.jpg&quot;,&quot;size&quot;:[600,600]},&quot;value&quot;:0,&quot;name&quot;:&quot;Вариант 2&quot;},{&quot;text&quot;:&quot;Мороженное&quot;,&quot;image&quot;:{&quot;file&quot;:&quot;//u6.platformalp.ru/c16a5320fa475530d9583c34fd356ef5/ca0be5f5cd84b6891c5a611b252bc904.jpg&quot;,&quot;size&quot;:[600,600]},&quot;value&quot;:0}],&quot;visual_width&quot;:30,&quot;visual_height&quot;:100,&quot;required&quot;:false,&quot;id&quot;:&quot;&quot;,&quot;min&quot;:&quot;0&quot;,&quot;max&quot;:&quot;100&quot;,&quot;step&quot;:&quot;1&quot;,&quot;align&quot;:&quot;sides&quot;,&quot;fontsize&quot;:120,&quot;format&quot;:&quot;%result% руб.&quot;,&quot;formula&quot;:&quot;&quot;,&quot;condition&quot;:&quot;&quot;,&quot;template&quot;:&quot;&quot;,&quot;variable&quot;:&quot;&quot;,&quot;valueOn&quot;:&quot;1&quot;,&quot;valueOff&quot;:&quot;0&quot;,&quot;privacy_button&quot;:&quot;Политика конфиденциальности&quot;,&quot;privacy_checkbox&quot;:&quot;Даю согласие на &lt;обработку персональных данных&gt;&quot;,&quot;privacy_text&quot;:&quot;Нажимая кнопку, вы даете согласие на &lt;обработку персональных данных&gt;&quot;,&quot;privacy_source&quot;:&quot;/privacy&quot;}">
+                          <div cr-field="phone" class="is-text">
+                            <div class="name">
+                              telefon
+                            </div>
+                            <div class="input">
+                              <input type="text" il-action="listen" autocomplete="tel" class="form-control" value="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="node css37 widget-button widget">
+                        <!--pseudo-hidden-->
+                        <div class="macros-button">
+                          <div class="btn-out full xs-none">
+                            <div class="btn-inner"><button class="btn css36 font-text" data-action="send"
+                                data-highlight="false">
+                                <div class="pad-left" style="width: 28px;"></div>
+                                <div class="btn-content"><span class="text">méreg</span></div>
+                                <div class="pad-right" style="width: 28px;"></div>
+                              </button></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="padding_bottom"></div>
+    </div>
+    <div class="node section section-helper"></div>
+
+
+
+
+</body>
+
+</html>
